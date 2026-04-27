@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+.env
+**/.env
+.DS_Store
+Thumbs.db
+*.log
+coverage/
+dist/
+build/
+.vscode/
+backend/serviceAccountKey.json
+backend/Serviceaccountkey.json.json

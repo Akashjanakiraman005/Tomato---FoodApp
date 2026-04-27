@@ -1,0 +1,62 @@
+### REST Client API Testing for Tomato Food Delivery App
+
+@baseUrl = http://localhost:5000
+@contentType = application/json
+
+### Get all foods
+GET {{baseUrl}}/api/food
+
+### Get food by ID
+GET {{baseUrl}}/api/food/1
+
+### Add new food (POST) - with image upload
+POST {{baseUrl}}/api/food/add
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="name"
+
+Margherita Pizza
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="description"
+
+Classic pizza with tomato, mozzarella, and basil
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="price"
+
+12.99
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="category"
+
+pizza
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="pizza.jpg"
+Content-Type: image/jpeg
+
+< ./uploads/pizza.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Update food
+PUT {{baseUrl}}/api/food/1
+Content-Type: {{contentType}}
+
+{
+  "name": "Updated Pizza",
+  "price": 13.99
+}
+
+### Delete food
+DELETE {{baseUrl}}/api/food/1
+
+### Create order
+POST {{baseUrl}}/api/order
+Content-Type: {{contentType}}
+
+{
+  "items": [
+    {"foodId": 1, "quantity": 2},
+    {"foodId": 2, "quantity": 1}
+  ],
+  "userId": "user123",
+  "totalPrice": 35.97
+}

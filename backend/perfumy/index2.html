@@ -1,0 +1,82 @@
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <div >
+        <h1 class="o" ></h1>
+        <h1 class="h" ></h2>
+         <h1 class="T" ></h1>
+          <h1 class="f"></h1>
+    </div>
+    
+<style>
+    div{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    
+    
+     .o{
+        background-color: black;
+        height: 100px;
+        flex-basis:20%;
+        margin: 5px;
+    }
+
+    .h{
+        background-color: rgb(56, 165, 42);
+        height: 100px;
+        flex-basis:20%;
+        margin: 5px;
+    }
+    .T{
+        background-color: rgb(73, 46, 226);
+        height: 100px;
+        flex-basis:20%;
+        margin: 5px;
+    }
+    .f{
+        background-color: red;
+        height: 100px;
+        flex-basis:20%;
+        margin: 5px;
+    }
+
+
+    @media screen and (max-width:800px) {
+        .o{
+            flex-basis: 40%;
+        }
+     .h{
+            flex-basis: 40%;
+        }
+     .T{
+            flex-basis: 40%;
+        }
+     .f{
+            flex-basis: 40%;
+        }
+    
+    }
+
+    @media screen and (max-width:400px) {
+        .o{
+            flex-basis: 60%;
+        }
+                .h{
+            flex-basis: 60%;
+        }
+                .T{
+            flex-basis: 60%;
+        }
+                .f{
+            flex-basis: 60%;
+        }
+        
+    }
+</style>
+
+</body>
+</html>

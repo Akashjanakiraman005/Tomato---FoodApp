@@ -1,0 +1,49 @@
+import React from 'react'
+import './sidebar.css'
+import {assets} from  '../../assets/assets'
+import { NavLink } from 'react-router-dom'
+
+const Sidebar = () => {
+  return (
+    <div className="sidebar">
+        <div className="sidebar-options">
+            <NavLink to='/add' className={({isActive}) => isActive ? "sidebar-option active" : "sidebar-option"}>
+                <img src={assets.add_icon} alt="" />
+            <p>Add Item</p>
+            </NavLink>
+        </div>
+         <div className="sidebar-options">
+            <NavLink to='/list' className={({isActive}) => isActive ? "sidebar-option active" : "sidebar-option"}>
+                <img src={assets.order_icon} alt="" />
+            <p>List Items</p>
+            </NavLink>
+        </div>
+
+ <div className="sidebar-options">
+            <NavLink to='/orders' className={({isActive}) => isActive ? "sidebar-option active" : "sidebar-option"}>
+                <img src={assets.order_icon} alt="" />
+            <p>Orders</p>
+            </NavLink>
+        </div>
+
+        <div className="sidebar-options">
+            <NavLink to='/tables' className={({isActive}) => isActive ? "sidebar-option active" : "sidebar-option"}>
+                <img src={assets.order_icon} alt="" />
+            <p>Tables</p>
+            </NavLink>
+        </div>
+
+        <div className="sidebar-options">
+            <NavLink to='/finance' className={({isActive}) => isActive ? "sidebar-option active" : "sidebar-option"}>
+                <img src={assets.order_icon} alt="" />
+            <p>Finance</p>
+            </NavLink>
+        </div>
+
+
+      
+    </div>
+  )
+}
+
+export default Sidebar

@@ -1,0 +1,71 @@
+*{
+    
+}
+
+h1{
+
+    font-family: 'Cormorant Garamond', serif;   
+    color: white;
+    margin-left: 60px;
+    border-radius: 3px;
+    padding: 5px;
+
+}
+
+.start{
+
+    font-family: 'Corporant Garamond', serif;  
+    display: flex;  
+    margin-right: 60px;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    gap: 10px;
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    
+    
+}
+
+input{
+
+    padding: 3px;
+    width: 60%;
+    margin: 6px;
+    padding: 20px;
+}
+.product{
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+    width: 95%;
+    
+
+    
+}
+div{
+    margin: 20px;
+    text-align: center;
+    color: black;
+    border: black solid 3px;
+    flex-basis: 20%;
+}
+
+.search:hover{
+    color: black;
+}
+
+.product{
+    align-content: center;
+    margin-left: 40px;
+}
+
+h2:hover{
+    background-color: white;
+    color: black;
+    }

@@ -1,0 +1,177 @@
+.tables-container {
+    width: 80%;
+    margin: 50px auto;
+    color: #333;
+    font-family: 'Outfit', sans-serif;
+}
+
+.tables-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tables-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #fff0ed;
+    border: 1px solid tomato;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.stat-card h3 {
+    margin: 0;
+    color: tomato;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.stat-card p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.theatre-stage {
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px dashed #ccc;
+    color: #777;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.theatre-grid {
+    display: grid;
+    /* Match the 3-column layout of PlaceOrder tables */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.theatre-table {
+    position: relative;
+    border-radius: 12px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 3px solid transparent;
+}
+
+.theatre-table:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.theatre-table.available {
+    background-color: #e8f5e9;
+    border-color: #4CAF50;
+    color: #2e7d32;
+}
+
+.theatre-table.occupied {
+    background-color: #ffebee;
+    border-color: #f44336;
+    color: #c62828;
+}
+
+.table-number {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.table-seats {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.table-status {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.theatre-table.available .table-status {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.theatre-table.occupied .table-status {
+    background-color: #f44336;
+    color: white;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #555;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-color.available {
+    background-color: #4CAF50;
+}
+
+.legend-color.occupied {
+    background-color: #f44336;
+}
+
+@media (max-width: 900px) {
+    .tables-container {
+        width: 95%;
+    }
+    .tables-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .theatre-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .theatre-grid {
+        grid-template-columns: 1fr;
+    }
+}

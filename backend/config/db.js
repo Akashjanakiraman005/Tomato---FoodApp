@@ -1,0 +1,1 @@
+// MongoDB connection removed. All data is now handled by Firebase/Firestore.
