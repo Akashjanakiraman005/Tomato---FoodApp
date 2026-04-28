@@ -6,6 +6,7 @@ const seedFoodData = async () => {
     try {
         // Connect to MongoDB - using the same connection as server
         await mongoose.connect('mongodb+srv://Akashjanakiraman:Akashjani1213@cluster0.omy4edf.mongodb.net/tomato');
+        await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to MongoDB");
 
         // Clear existing food items

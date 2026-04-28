@@ -1,6 +1,4 @@
 import { connectFirebase } from "../firebase.js";
-import fs from "fs";
-import path from "path";
 
 const { db, bucket } = connectFirebase();
 const foodCollection = db.collection("foods");
@@ -11,17 +9,15 @@ const addFood = async (req, res) => {
         if (!req.file) {
             return res.status(400).json({ message: "Image is required" });
         }
-        // Upload image to Firebase Storage
-        const localPath = path.join("uploads", req.file.filename);
+        // Upload image directly from memory buffer to Firebase Storage
         const destination = `foods/${Date.now()}-${req.file.originalname}`;
-        await bucket.upload(localPath, {
-            destination,
+        const file = bucket.file(destination);
+        
+        await file.save(req.file.buffer, {
             metadata: {
                 contentType: req.file.mimetype,
             },
         });
-        // Get public URL
-        const file = bucket.file(destination);
         await file.makePublic();
         const imageUrl = file.publicUrl();
 
@@ -33,8 +29,6 @@ const addFood = async (req, res) => {
             image: imageUrl
         };
         const docRef = await foodCollection.add(foodData);
-        // Optionally delete local file
-        fs.unlink(localPath, () => {});
         res.status(201).json({ message: "Food item added successfully", id: docRef.id, food: foodData });
     } catch (error) {
         console.log(error);
@@ -91,8 +85,6 @@ const removeFood = async (req, res) => {
         if (!foodDoc.exists) {
             return res.status(404).json({ success: false, message: "Food item not found" });
         }
-        const food = foodDoc.data();
-        fs.unlink(`uploads/${food.image}`, () => {});
         await foodCollection.doc(foodId).delete();
         res.status(200).json({ success: true, message: "Food item removed successfully" });
     } catch (error) {
