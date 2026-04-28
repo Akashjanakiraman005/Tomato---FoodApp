@@ -61,7 +61,7 @@ const fallbackFoodList = [
 const listFood = async (req, res) => {
     try {
         const timeoutPromise = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error("Firestore timeout")), 50)
+            setTimeout(() => reject(new Error("Firestore timeout")), 5000)
         );
         const snapshot = await Promise.race([foodCollection.get(), timeoutPromise]);
         
